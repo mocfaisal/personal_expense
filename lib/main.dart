@@ -31,6 +31,8 @@ class MyHomePage extends StatelessWidget {
       date: DateTime.now(),
     ),
   ];
+  late String titleInput;
+  late String amountInput;
 
   @override
   Widget build(BuildContext context) {
@@ -58,9 +60,13 @@ class MyHomePage extends StatelessWidget {
                 children: <Widget>[
                   TextField(
                     decoration: InputDecoration(labelText: 'Title'),
+                    onChanged: (val) {
+                      titleInput = val;
+                    },
                   ),
                   TextField(
                     decoration: InputDecoration(labelText: 'Amount'),
+                    onChanged: (val) => amountInput = val,
                   ),
                   ElevatedButton(
                     child: Text('Add Transaction'),
@@ -69,7 +75,10 @@ class MyHomePage extends StatelessWidget {
                       fixedSize: Size.fromWidth(100),
                       padding: EdgeInsets.all(10),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      print(titleInput);
+                      print(amountInput);
+                    },
                   ),
                 ],
               ),
